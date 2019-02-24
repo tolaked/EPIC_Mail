@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/tolaked/EPIC_Mail/issues"
   },
-  "homepage": "https://github.com/tolaked/EPIC_Mail#readme",
+  "homepage": "https://github.com/tolaked/EPIC_Mail/UI",
   "devDependencies": {
     "gh-pages": "^2.0.1"
   }
