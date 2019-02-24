@@ -112,3 +112,28 @@ hr {
 .signup-link:hover {
   text-decoration: underline;
 }
+.signup {
+  display: none;
+}
+.signup {
+  background: #fff;
+  width: 300px;
+  padding: 50px 50px 0px 50px;
+  margin-top: 10px;
+  border-radius: 2px;
+  height: 700px;
+  border-radius: 5px;
+}
+
+.account {
+  text-align: center;
+  margin-top: 10px;
+}
+.Login-link {
+  color: blue;
+  font-style: italic;
+  text-decoration: none;
+}
+.Login-link:hover {
+  text-decoration: underline;
+}
