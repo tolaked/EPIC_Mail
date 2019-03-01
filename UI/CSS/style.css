@@ -1,3 +1,7 @@
+/*====================================================
+  Basic css reset
+  ====================================================*/
+
 * {
   padding: 0;
   margin: 0;
@@ -5,6 +9,7 @@
 
 body {
   font-family: Verdana, "Geneva", Tahoma, sans-serif;
+  font-size: 100%;
 }
 
 .main-header {
@@ -15,13 +20,17 @@ body {
   font-size: 30px;
   font-weight: bold;
   border-bottom: 1px solid blue;
+  min-width: 300px;
 }
+
 .logo {
   text-decoration: none;
 }
+
 .logo-icon {
   color: blue;
 }
+
 .main-section {
   background: url(../img/mouse2.jpeg) center/cover;
   display: flex;
@@ -40,6 +49,7 @@ hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
+
 /*stles the whole log in container*/
 .form-container {
   background: #fff;
@@ -54,11 +64,13 @@ hr {
 .input-container {
   margin-bottom: 25px;
 }
+
 /*styles the labels for the input field*/
 .label {
   display: block;
   margin-bottom: 5px;
 }
+
 /* sets style for the input fields*/
 .input {
   display: block;
@@ -72,6 +84,7 @@ hr {
   outline: 0;
   transition: 0.3s;
 }
+
 .input:focus {
   border: 1px solid blue;
 }
@@ -91,30 +104,57 @@ hr {
   border-radius: 5px;
   transition: 0.3s;
 }
+
 .button:hover {
   background: rgb(0, 0, 255);
 }
+/* Sets style for link to sign in to dashboard */
+
+.link-button {
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 850px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 2px;
+  transition: 0.3s;
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
 .no-account {
   margin-top: 15px;
   text-align: center;
 }
+
 .psw {
   text-align: center;
   margin-top: 10px;
   text-decoration: none;
   color: blue;
 }
+
 .signup-link {
   color: blue;
   text-decoration: none;
   font-style: italic;
 }
+
 .signup-link:hover {
   text-decoration: underline;
 }
+
 .signup {
   display: none;
 }
+
 .signup {
   background: #fff;
   width: 300px;
@@ -129,11 +169,554 @@ hr {
   text-align: center;
   margin-top: 10px;
 }
+
 .Login-link {
   color: blue;
   font-style: italic;
   text-decoration: none;
 }
+
 .Login-link:hover {
   text-decoration: underline;
+}
+
+/*====================================================
+  users Dashboard styles 
+  ====================================================*/
+
+.dropicon {
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  margin-right: 120px;
+}
+
+.dropdown {
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(26, 5, 5, 0.2);
+  z-index: 2;
+}
+
+.dropdown-content p {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content p:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* .dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+} */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: #35577a;
+  padding: 0.8rem;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.main-body {
+  display: flex;
+  min-height: calc(100vh - 59px);
+  min-width: 300px;
+}
+
+.sidebar {
+  background: #f4f4f4;
+  padding-top: 20px;
+  min-width: 150px;
+  border-right: 1px solid #212d57;
+  font-weight: bold;
+  margin-left: 0px;
+}
+
+.compose {
+  background: #212d57;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 60%;
+  border-radius: 3px;
+  font-weight: normal;
+  cursor: pointer;
+  color: white;
+}
+
+.compose:hover {
+  font-weight: bold;
+}
+
+.content {
+  background: #fff;
+  padding: 20px;
+  width: 100%;
+  min-width: 300px;
+}
+
+.inbox-list {
+  min-width: 300px;
+}
+
+.messages {
+  display: flex;
+  padding: 0.5em;
+  justify-content: space-between;
+  background: #f4f4f4;
+  margin-bottom: 16px;
+  transition: 0.2s;
+  border-radius: 2px;
+  min-width: 500px;
+}
+
+.messages:hover {
+  background: #212d57;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sidebar-icon {
+  margin-bottom: 20px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.message-container {
+  flex-direction: column;
+}
+
+.message-details {
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.delete-icon {
+  color: red;
+}
+
+.inbox {
+  margin-bottom: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+.inbox.active {
+  background: #212d57;
+  margin-left: 0px;
+  width: 100%;
+}
+
+.sent {
+  margin-bottom: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sent.active {
+  background: #212d57;
+  margin-left: 0px;
+  width: 100%;
+}
+
+.draft {
+  margin-bottom: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.draft.active {
+  background: #212d57;
+  width: 100%;
+}
+
+.groups {
+  margin-bottom: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.groups.active {
+  background: #212d57;
+  width: 100%;
+}
+
+.create-group {
+  margin-bottom: 20px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.sent-message {
+  display: none;
+}
+.message-container draft-content {
+  display: none;
+}
+
+/* =================================================================
+Compose message box
+ =================================================================*/
+
+.compose-box {
+  background: #f4f4f4;
+  width: 80%;
+  margin: 20px auto;
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px;
+  text-align: center;
+  display: block;
+}
+
+.box input[type="text"],
+.box textarea {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.recipent {
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  height: 30px;
+  width: 95%;
+  padding-left: 5px;
+}
+
+.subject {
+  display: block;
+  margin-bottom: 15px;
+  height: 30px;
+  width: 95%;
+  padding-left: 5px;
+}
+
+.cc {
+  display: block;
+  margin-bottom: 15px;
+  height: 30px;
+  width: 95%;
+  padding-left: 5px;
+}
+
+.write-a-message {
+  display: block;
+  margin-bottom: 15px;
+  height: 200px;
+  width: 95%;
+  padding-left: 5px;
+}
+
+.send {
+  padding-right: 5px;
+  width: 40%;
+  background: #35577a;
+  height: 30px;
+  margin-top: 15px;
+  align-content: center;
+}
+.close {
+  color: red;
+  text-align: left;
+}
+
+.sent-list {
+  display: none;
+}
+.draft-list {
+  display: none;
+}
+/* ==============Read Email============================= */
+.subject-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 10px;
+}
+.subject {
+  width: 60%;
+}
+
+.time-received {
+  width: 40%;
+}
+
+.users {
+  margin-bottom: 25px;
+}
+.inbox-messageContent {
+  padding-right: 40%;
+  margin-bottom: 25px;
+}
+
+.main-new-inbox-body {
+  display: none;
+  padding: 17px;
+}
+
+.compose-box {
+  display: none;
+}
+
+.pswd-rst {
+  display: none;
+}
+
+/* =======password resert styling======== */
+
+.form-header {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: bold;
+}
+/* styles and overwrites default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/*stles the whole log in container*/
+.resetform {
+  background: #fff;
+  width: 300px;
+  padding: 50px;
+  margin-top: 70px;
+  border-radius: 2px;
+  height: 380px;
+  border-radius: 5px;
+}
+
+.input-container {
+  margin-bottom: 25px;
+}
+
+/*styles the labels for the input field*/
+.label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* sets style for the input fields*/
+.input {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: #f4f4f4;
+  width: 100%;
+  height: 20px;
+  padding: 10px 5px;
+  font-size: 16px;
+}
+
+.input:focus {
+  border: 1px solid blue;
+}
+
+/*sets a style for the log in and sign in button*/
+.button {
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: rgb(0, 0, 255);
+}
+
+.pswd-rst {
+  background: #fff;
+  width: 300px;
+  padding: 50px;
+  margin-top: 70px;
+  border-radius: 2px;
+  height: 380px;
+  border-radius: 5px;
+}
+.reset-btn {
+  background-color: rgba(0, 0, 255, 0.788);
+  color: white;
+  padding: 14px 20px;
+  margin-top: 1px;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.reset-btn:hover {
+  background: rgb(0, 0, 255);
+}
+
+.reset-password {
+  text-decoration: none;
+  color: black;
+}
+
+/* ==================NEW GROUP============== */
+
+.message_container {
+  width: 40%;
+  padding: 20px;
+  background: #f1f1f1;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+.message_wrapper {
+  width: 100%;
+}
+.message_wrapper ul {
+  list-style-type: none;
+  display: flex;
+  width: 100%;
+}
+
+.message_wrapper ul li {
+  list-style-type: none;
+  display: inline-block;
+  text-align: right;
+  justify-content: space-between;
+}
+
+.message_wrapper_header {
+  text-align: right;
+  width: 90%;
+  padding-right: 30%;
+}
+
+.cancel-message-wrapper {
+  text-align: right;
+  width: 10%;
+}
+
+.cancel-form {
+  color: red;
+  width: 10%;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-left: 90%;
+}
+
+.message_container input[type="text"],
+.message_container input[type="password"],
+.message_container textarea {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: 2px solid rgba(110, 108, 108, 0.5);
+  background: rgba(223, 217, 217, 0.5);
+  border-radius: 5px;
+  transition: 1s;
+}
+
+.message_container input[type="text"]:focus,
+.message_container input[type="password"]:focus,
+textarea:focus {
+  background-color: #ddd;
+}
+.create-group-form {
+  display: none;
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.add-grp-btn {
+  margin: 8px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.add-grp-button {
+  background-color: blue;
+  width: 40%;
+  padding: 16px 20px;
+  font-size: 15px;
+}
+.cancel-grp-btn {
+  background-color: blue;
+  width: 40%;
+  padding: 16px 20px;
+  font-size: 15px;
+}
+
+/* ======Group drop down menu */
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+@media only screen and (max-width: 700px) {
+  .header {
+    width: 100%;
+  }
 }

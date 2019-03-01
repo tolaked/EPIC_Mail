@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <title>EPIC MAIL | User-Dashboard</title>
+  </head>
+  <body>
+    <div class="header">
+      <a href="index.html" class="logo"
+        ><span class="logo-icon">EPIC</span> Mail</a
+      >
+
+      <div class="dropdown">
+          <button class="dropicon"><i class="fas fa-user"></i></button>
+          <div class="dropdown-content">
+              <p class="signout"></i> logout</p>
+              <div class="reset-password">
+                  <p class="reset-password"><a class="reset-password" href="resetpassword.html">Reset password</a></p>
+              </div>
+            </div>
+          </div>
+            
+          
+            
+</div>
+    <main class="main-body">
+      <!--./Side bar  -->
+      <section class="sidebar">
+        <div class="compose">Compose</div>
+
+        <div class="sidebar-icon">
+          <div class="inbox"><i class="fas fa-inbox"></i> Inbox</div>
+
+          <div class="sent"><i class="fab fa-accusoft"></i> Sent</div>
+
+          <div class="draft"><i class="fas fa-comment-alt"></i> Draft</div>
+          <!-- =====./Groups content==== -->
+          
+          <div class="groups" onclick="myFunction()"><i class="fas fa-user-friends"></i> Groups <i class="fa fa-caret-down"></i></div>
+          <div class="dropdown-content" id="myDropdown">
+              <a href="#">Andela </a>
+              <a href="#">Epic</a>
+              <a href="#">Football zone</a>
+            </div>
+          <!-- ====./Groups content -->
+          <div class="create-group"><i class="fas fa-plus"></i>Add group</div>
+        </div>
+
+        <!-- ./Add group column -->
+        <div class="create-group-form"><form action="" class="create-grp-form">
+         
+            <div class="message_container">
+                <div class="message_wrapper">
+                    <ul><li class="message_wrapper_header"><h1 class="message-header">Add Group</h1>
+                     </li><li class="cancel-message-wrapper"><div class="cancel-form">x</div></li>
+                 </ul>
+                </div>
+                 
+               <hr />
+   
+               <input
+                 type="text"
+                 placeholder="Name"
+                 name="groupname"
+                 required
+               />
+               <hr />
+                <div class="add-grp-btn">
+               <button type="submit" class="add-grp-button">Add</button>
+               <button type="submit" class="cancel-grp-btn">Cancel</button>
+              </div>
+             </div> 
+          </form></div>
+
+        <!-- ./Add group column -->
+      </section>
+
+      
+      <section class="content">
+        <!-- ./Mail(Inbox) Content -->
+        <div class='inbox-list'>
+        <div class="message-container ">
+          <div class="messages">
+            <div class="message-details">Sender Name</div>
+            <div class="message-details">New message: Message Content</div>
+            <div class="message-details">New message: Message Content</div>
+            <div class="delete-icon"><i class="fas fa-trash-alt"></i></div>
+          </div>
+
+          <div class="messages">
+            <div class="message-details">Sender Name</div>
+            <div class="message-details">New message: Message Content</div>
+            <div class="message-details">New message: Message Content</div>
+            <div class="delete-icon"><i class="fas fa-trash-alt"></i></div>
+          </div>
+        </div>
+        </div>
+        <!-- ./Mail(Inbox) Content -->
+
+        <!-- ./Mail(Sent) Content -->
+        <div class='sent-list'>
+          
+        <div class="message-container">
+            <div class="messages">
+              <div class="message-details">Sender Name</div>
+              <div class="message-details">New Inc message: Message Content</div>
+              <div class="message-details">New Incmessage: Message Content</div>
+              <div class="delete-icon"><i class="fas fa-trash-alt"></i></div>
+            </div>
+            <!--/.messages-->
+  
+            <div class="messages">
+              <div class="message-details">Sender Name</div>
+              <div class="message-details">New Inc message: Message Content</div>
+              <div class="message-details">New Inc message: Message Content</div>
+              <div class="delete-icon"><i class="fas fa-trash-alt"></i></div>
+            </div>
+          </div>
+        </div>
+          <!-- ./Mail(Sent) Content -->
+          
+          <div class='draft-list'>
+              <div class="message-container ">
+                  <div class="messages">
+                    <div class="message-details">Sender Name</div>
+                    <div class="message-details">New message: Message Content</div>
+                    <div class="message-details">New message: Message Content</div>
+                    <div class="delete-icon"><i class="fas fa-trash-alt"></i></div>
+                  </div>
+        
+                  <div class="messages">
+                    <div class="message-details">Sender Name</div>
+                    <div class="message-details">New message: Message Content</div>
+                    <div class="message-details">New message: Message Content</div>
+                    <div class="delete-icon"><i class="fas fa-trash-alt"></i></div>
+                  </div>
+                </div>
+        </div>
+        <div class='groupcontent'>
+            
+     </div>
+    <div class="compose-box">
+            <form action="" class="box">
+              <p class="close"><i class="fas fa-window-close"></i></p>
+              <br />
+              <input
+                type="text"
+                class="recipent"
+                placeholder="To:"
+                width="48"
+                height="48"
+              />
+              <input type="text" class="subject" placeholder="Subject" />
+              <input type="text" class="cc" placeholder="Cc" />
+              <textarea
+                name="write-a-message"
+                class="write-a-message"
+                cols="30"
+                rows="10"
+                placeholder="Write a message"
+              ></textarea>
+              <button class="send">Send</button>
+              <button class="send">Save as Draft</button>
+            </form>
+          </div>
+          
+      </section>
+      
+    </main>
+    <!--/.compose-->
+
+    
+    <!-- ./Read Email -->
+   
+    <!-- ./Main Inbox New Mail body  -->
+
+    <div class="main-new-inbox-body">
+            
+        <div class="read-email">
+            <div class="subject-wrapper"><h1 class="subject">Congratulations, Welcome On board</h1> <p class="time-received"> </p></div>
+
+            <hr />
+          <div class="users">
+
+            <h1 class="from">Akere Adetola </h1><p class="epic"> < tolaked@epic.com></p>
+            <p class="to">to: andela@epicmail.com</p>
+          </div>
+                
+          <div class="inbox-messageContent">
+           <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum rerum ab officiis 
+              voluptas omnis cum fugiat eveniet doloribus? Et est, dolores nostrum consectetur praesentium quaerat dolorem magni amet quasi hic.
+              voluptas omnis cum fugiat eveniet doloribus? Et est, dolores nostrum consectetur praesentium quaerat dolorem magni amet quasi hic.
+            </p>
+            
+          </div>
+          <hr />
+
+          <div class="subject-wrapper"><h1 class="subject"></h1> <p class="time-received"> 
+              </p></div>
+
+          <hr />
+        <div class="users">
+
+          <h1 class="from">Andela </h1><p class="epic"> < Tolaked@epicmail.com></p>
+          <p class="to">to: surifoll@epicmail.com</p>
+        </div>
+              
+        <div class="message__body">
+         <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+            Temporibus facere, vitae qui a soluta ratione 
+             labore nemo veritatis nisi itaque sit odio
+              dolorum molestiae perferendis, nobis eius commodi dolorem?
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum eos facilis soluta, ad expedita, quod quasi aliquam voluptates sunt quidem culpa debitis at in. Pariatur, aperiam ea! Cupiditate itaque eligendi non excepturi perferendis quibusdam accusantium dolore sequi? Nulla, cupiditate sunt. Vel voluptate nam, consequatur debitis iure quasi reprehenderit facilis quos quia magnam repellat? Deleniti accusantium excepturi sit corrupti vitae vel commodi nemo recusandae cum ex distinctio corporis ducimus vero sint similique, minima quidem rem eligendi quaerat? Dolores commodi saepe sunt iste dolorum debitis laboriosam, libero expedita
+               inventore eligendi vitae atque at animi reprehenderit molestias ex? Quae fugiat facilis mollitia nesciunt?
+          </p>
+          
+        </div>
+        <hr />
+        </div>
+        </div>
+    <script src="../dashboard.js"></script>
+  </body>
+</html>
