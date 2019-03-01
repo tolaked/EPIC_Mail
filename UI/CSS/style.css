@@ -588,7 +588,7 @@ hr {
   color: black;
 }
 
-/* ==================NEW GROUP============== */
+/* ==================NEW GROUP================= */
 
 .message_container {
   width: 40%;
@@ -601,6 +601,7 @@ hr {
 .message_wrapper {
   width: 100%;
 }
+
 .message_wrapper ul {
   list-style-type: none;
   display: flex;
@@ -651,6 +652,7 @@ hr {
 textarea:focus {
   background-color: #ddd;
 }
+
 .create-group-form {
   display: none;
   position: fixed;
