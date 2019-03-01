@@ -44,7 +44,6 @@ body {
   margin-bottom: 25px;
   font-size: bold;
 }
-
 /* styles and overwrites default styles of hr */
 hr {
   border: 1px solid #f1f1f1;
@@ -142,7 +141,6 @@ hr {
   color: blue;
 }
 
-/* sets style for sign up link */
 .signup-link {
   color: blue;
   text-decoration: none;
@@ -223,10 +221,6 @@ hr {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
-/* .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-} */
 
 .header {
   display: flex;
@@ -322,6 +316,7 @@ hr {
   padding: 10px;
   cursor: pointer;
 }
+
 .inbox.active {
   background: #212d57;
   margin-left: 0px;
@@ -372,6 +367,7 @@ hr {
 .sent-message {
   display: none;
 }
+
 .message-container draft-content {
   display: none;
 }
