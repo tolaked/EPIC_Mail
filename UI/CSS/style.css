@@ -44,6 +44,7 @@ body {
   margin-bottom: 25px;
   font-size: bold;
 }
+
 /* styles and overwrites default styles of hr */
 hr {
   border: 1px solid #f1f1f1;
@@ -141,6 +142,7 @@ hr {
   color: blue;
 }
 
+/* sets style for sign up link */
 .signup-link {
   color: blue;
   text-decoration: none;
