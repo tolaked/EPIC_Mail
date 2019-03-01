@@ -222,10 +222,6 @@ hr {
   display: block;
 }
 
-/* .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-} */
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -320,6 +316,7 @@ hr {
   padding: 10px;
   cursor: pointer;
 }
+
 .inbox.active {
   background: #212d57;
   margin-left: 0px;
@@ -370,6 +367,7 @@ hr {
 .sent-message {
   display: none;
 }
+
 .message-container draft-content {
   display: none;
 }
