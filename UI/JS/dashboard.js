@@ -26,8 +26,6 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it.
-
 cancelForm.addEventListener("click", () => {
   createGroupOverlay.style.display = "none";
 });
