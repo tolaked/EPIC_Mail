@@ -675,6 +675,7 @@ textarea:focus {
   justify-content: space-evenly;
   width: 100%;
 }
+
 /* Styles the add group button */
 .add-grp-button {
   background-color: blue;
