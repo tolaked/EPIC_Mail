@@ -44,6 +44,7 @@ body {
   margin-bottom: 25px;
   font-size: bold;
 }
+
 /* styles and overwrites default styles of hr */
 hr {
   border: 1px solid #f1f1f1;
@@ -141,6 +142,7 @@ hr {
   color: blue;
 }
 
+/* sets style for sign up link */
 .signup-link {
   color: blue;
   text-decoration: none;
@@ -586,7 +588,7 @@ hr {
   color: black;
 }
 
-/* ==================NEW GROUP============== */
+/* ==================NEW GROUP================= */
 
 .message_container {
   width: 40%;
@@ -599,6 +601,7 @@ hr {
 .message_wrapper {
   width: 100%;
 }
+
 .message_wrapper ul {
   list-style-type: none;
   display: flex;
@@ -649,6 +652,7 @@ hr {
 textarea:focus {
   background-color: #ddd;
 }
+
 .create-group-form {
   display: none;
   position: fixed;
@@ -671,7 +675,7 @@ textarea:focus {
   justify-content: space-evenly;
   width: 100%;
 }
-
+/* Styles the add group button */
 .add-grp-button {
   background-color: blue;
   width: 40%;
