@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gh-pages -d UI"
+    "deploy": "gh-pages -d UI",
+    "start": "nodemon ./server/server.js --exec babel-node",
+    "lint": "./node_modules/.bin/eslint server --fix"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,28 @@
     "url": "https://github.com/tolaked/EPIC_Mail/issues"
   },
   "homepage": "https://github.com/tolaked/EPIC_Mail/UI",
+  "dependencies": {
+    "express": "^4.16.4",
+    "gh-pages": "^2.0.1",
+    "body-parser": "^1.18.3"
+  },
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/register": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.0-beta.6",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.9",
+    "webpack": "^4.29.3"
   }
 }
