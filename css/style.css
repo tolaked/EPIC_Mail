@@ -62,6 +62,16 @@ hr {
   border-radius: 5px;
 }
 
+.recover-form {
+  background: #fff;
+  width: 300px;
+  padding: 50px;
+  margin-top: 70px;
+  border-radius: 2px;
+  height: 280px;
+  border-radius: 5px;
+}
+
 .input-container {
   margin-bottom: 25px;
 }
@@ -128,6 +138,22 @@ hr {
   width: 100%;
   text-align: center;
   text-decoration: none;
+}
+
+.recover-button {
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: 0.3s;
+  display: block;
+  width: 100%;
 }
 
 .no-account {
