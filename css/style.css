@@ -58,7 +58,7 @@ hr {
   padding: 50px;
   margin-top: 70px;
   border-radius: 2px;
-  height: 380px;
+  /* height: 380px; */
   border-radius: 5px;
 }
 
@@ -815,7 +815,7 @@ textarea:focus {
   .hearder {
     min-width: 400px;
   }
-  .form-container{
-    min-height:440px;
-  }
+  /* .form-container{
+    min-height:480px;
+  } */
 }
