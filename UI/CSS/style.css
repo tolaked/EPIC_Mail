@@ -62,6 +62,16 @@ hr {
   border-radius: 5px;
 }
 
+.recover-form {
+  background: #fff;
+  width: 300px;
+  padding: 50px;
+  margin-top: 70px;
+  border-radius: 2px;
+  height: 280px;
+  border-radius: 5px;
+}
+
 .input-container {
   margin-bottom: 25px;
 }
@@ -130,6 +140,22 @@ hr {
   text-decoration: none;
 }
 
+.recover-button {
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: 0.3s;
+  display: block;
+  width: 100%;
+}
+
 .no-account {
   margin-top: 15px;
   text-align: center;
@@ -187,11 +213,16 @@ hr {
   ====================================================*/
 
 .dropicon {
-  color: white;
+  color: #35577a;
   padding: 16px;
   font-size: 16px;
   border: none;
-  margin-right: 120px;
+  cursor: pointer;
+}
+
+.dropicon:hover {
+  color: #fff;
+  background: #212d57;
 }
 
 .dropdown {
@@ -201,8 +232,8 @@ hr {
 }
 
 .dropdown-content {
-  display: none;
   position: absolute;
+  right: 8px;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(26, 5, 5, 0.2);
@@ -227,11 +258,20 @@ hr {
 .header {
   display: flex;
   justify-content: space-between;
-  background: #35577a;
-  padding: 0.8rem;
+  background: #212d57;
+  padding: 5px 20px;
   color: white;
   font-size: 30px;
   font-weight: bold;
+}
+
+.brand-container {
+  color: white;
+  text-decoration: none;
+}
+
+.menu-icon {
+  display: none;
 }
 
 .main-body {
@@ -243,36 +283,39 @@ hr {
 .sidebar {
   background: #f4f4f4;
   padding-top: 20px;
-  min-width: 150px;
+  min-width: 220px;
   border-right: 1px solid #212d57;
   font-weight: bold;
   margin-left: 0px;
 }
 
 .compose {
-  background: #212d57;
+  background: #ffaf30;
   margin-bottom: 20px;
   padding: 10px;
-  width: 60%;
-  border-radius: 3px;
+  max-width: 100px;
   font-weight: normal;
   cursor: pointer;
-  color: white;
+  color: #000;
+  font-weight: bold;
+  margin-left: 8px;
+  text-align: center;
+  transition: 0.2s;
 }
 
 .compose:hover {
-  font-weight: bold;
+  background: #212d57;
+  color: white;
 }
 
 .content {
-  background: #fff;
-  padding: 20px;
-  width: 100%;
-  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
 }
 
-.inbox-list {
-  min-width: 300px;
+.content-item {
+  min-width: calc(95vw - 220px);
 }
 
 .messages {
@@ -283,7 +326,6 @@ hr {
   margin-bottom: 16px;
   transition: 0.2s;
   border-radius: 2px;
-  min-width: 500px;
 }
 
 .messages:hover {
@@ -317,12 +359,23 @@ hr {
   margin-bottom: 20px;
   padding: 10px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-.inbox.active {
+.inbox:hover,
+.draft:hover,
+.groups:hover,
+.sent:hover {
   background: #212d57;
-  margin-left: 0px;
-  width: 100%;
+  color: white;
+}
+
+.inbox.active,
+.draft.active,
+.groups.active,
+.sent.active {
+  background: #212d57;
+  color: white;
 }
 
 .sent {
@@ -331,32 +384,16 @@ hr {
   cursor: pointer;
 }
 
-.sent.active {
-  background: #212d57;
-  margin-left: 0px;
-  width: 100%;
-}
-
 .draft {
   margin-bottom: 20px;
   padding: 10px;
   cursor: pointer;
 }
 
-.draft.active {
-  background: #212d57;
-  width: 100%;
-}
-
 .groups {
   margin-bottom: 20px;
   padding: 10px;
   cursor: pointer;
-}
-
-.groups.active {
-  background: #212d57;
-  width: 100%;
 }
 
 .create-group {
@@ -381,9 +418,9 @@ Compose message box
 .compose-box {
   background: #f4f4f4;
   width: 80%;
-  margin: 20px auto;
+  margin: 10px auto;
   border-radius: 4px;
-  padding: 20px;
+  padding: 2em;
   border: 1px;
   text-align: center;
   display: block;
@@ -434,21 +471,24 @@ Compose message box
   padding-right: 5px;
   width: 40%;
   background: #35577a;
-  height: 30px;
+  height: 50px;
   margin-top: 15px;
   align-content: center;
+  color: #fff;
+  border: none;
 }
 .close {
   color: red;
-  text-align: left;
+  text-align: right;
+  cursor: pointer;
+  font-size: 20px;
 }
 
-.sent-list {
-  display: none;
-}
+.sent-list,
 .draft-list {
   display: none;
 }
+
 /* ==============Read Email============================= */
 .subject-wrapper {
   display: flex;
@@ -475,6 +515,10 @@ Compose message box
 .main-new-inbox-body {
   display: none;
   padding: 17px;
+}
+
+.inbox-paragraph {
+  text-align: justify;
 }
 
 .compose-box {
@@ -583,9 +627,11 @@ hr {
   background: rgb(0, 0, 255);
 }
 
-.reset-password {
+.reset-password,
+.signout {
   text-decoration: none;
   color: black;
+  transition: 0.2s;
 }
 
 /* ==================NEW GROUP================= */
@@ -668,26 +714,33 @@ textarea:focus {
   cursor: pointer;
 }
 
+.show-create-group-form {
+  display: block;
+}
+
+.compose-button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .add-grp-btn {
   margin: 8px 0;
   cursor: pointer;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
 }
 
 /* Styles the add group button */
-.add-grp-button {
-  background-color: blue;
-  width: 40%;
-  padding: 16px 20px;
-  font-size: 15px;
-}
+.add-grp-button,
 .cancel-grp-btn {
-  background-color: blue;
+  background-color: #35577a;
+  border: none;
+  cursor: pointer;
   width: 40%;
   padding: 16px 20px;
   font-size: 15px;
+  color: white;
 }
 
 /* ======Group drop down menu */
@@ -698,18 +751,34 @@ textarea:focus {
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  /* z-index: 1; */
 }
 
-.dropdown-content a {
+.groups-dropdown-content {
+  display: none;
+  right: 8px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(26, 5, 5, 0.2);
+  z-index: 2;
+}
+
+.show-dropdown-content {
+  display: block;
+}
+
+.dropdown-content a,
+.groups-dropdown-content a {
   float: none;
   color: black;
-  padding: 12px 16px;
+  padding: 2px 8px;
   text-decoration: none;
   display: block;
   text-align: left;
 }
-
+.logo-icon {
+  display: inline-block;
+}
 .dropdown-content a:hover {
   background-color: #ddd;
 }
@@ -718,8 +787,32 @@ textarea:focus {
   display: block;
 }
 
-@media only screen and (max-width: 700px) {
-  .header {
-    width: 100%;
+@media only screen and (max-width: 600px) {
+  .main-body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .logo-container {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .show-sidebar {
+    display: block;
+  }
+
+  .create-grp-form-modified {
+    width: 70vw;
+    margin: 20px;
+  }
+  .hearder {
+    min-width: 400px;
   }
 }
