@@ -815,4 +815,7 @@ textarea:focus {
   .hearder {
     min-width: 400px;
   }
+  .form-container{
+    min-height:400px;
+  }
 }
