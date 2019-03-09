@@ -24,10 +24,36 @@ class UsersController {
     }
     return res.status(200).json({
       status: 200,
-      data: {
-        token: 'v32r4tfrvdsfagefv',
-      },
+      data: [{
+        token: '45erkjherht45495783”',
+      },]
     });
   }
+
+  static login(req, res) {
+    const { body } = req;
+    const custo = usersData.find(e => e.email == body.email);
+    if (!custo) {
+      return res.status(404).json({
+        status: 400,
+        error: 'user does not exist',
+      });
+    }
+
+    if (custo.password !== body.password) {
+      return res.status(404).json({
+        status: 404,
+        error: 'invalid password',
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      data: [{
+        token: 'ahd64jfhHG7832KFM5',
+      },]
+    });
+  }
+
 }
 export default UsersController;
