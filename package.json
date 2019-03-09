@@ -24,9 +24,10 @@
   },
   "homepage": "https://github.com/tolaked/EPIC_Mail/UI",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "gh-pages": "^2.0.1",
-    "body-parser": "^1.18.3"
+    "validator": "^10.11.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",

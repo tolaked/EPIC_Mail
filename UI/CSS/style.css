@@ -55,10 +55,10 @@ hr {
 .form-container {
   background: #fff;
   width: 300px;
-  padding: 50px;
+  padding: 2em;
   margin-top: 70px;
   border-radius: 2px;
-  height: 380px;
+  /* height: 380px; */
   border-radius: 5px;
 }
 
@@ -189,7 +189,7 @@ hr {
   padding: 50px 50px 0px 50px;
   margin-top: 10px;
   border-radius: 2px;
-  height: 700px;
+  height: 750px;
   border-radius: 5px;
 }
 
@@ -815,4 +815,7 @@ textarea:focus {
   .hearder {
     min-width: 400px;
   }
+  /* .form-container{
+    min-height:480px;
+  } */
 }
