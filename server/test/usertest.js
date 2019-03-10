@@ -8,10 +8,11 @@ const { expect } = chai;
 chai.use(chaiHttp);
 
 const user = {
-  "email": "yemyem2",
-  "firstName": "ggfu",
-  "lastName": "mato",
-  "password": "breeks29",
+
+    "email": "seun2@epic.com",
+    "firstname":"Akere",
+    "lastname": "Adetola",
+    "password": "breeks29"
 }
 
 
@@ -47,7 +48,7 @@ describe('GET api/v1/auth/signup', () => {
         const { body } = res;
         expect(body).to.be.an('object');
         expect(body.status).to.be.a('number');
-        expect(body.status).to.be.equals(200);
+        expect(body.status).to.be.equals(201);
         expect(body.data[0]).to.haveOwnProperty('token');
         expect(body.data[0].token).to.be.a('string');
         done();
@@ -57,17 +58,12 @@ describe('GET api/v1/auth/signup', () => {
 
  
 // Test suite for signup route
-describe('GET api/v1/auth/sigin', () => {
+describe('GET api/v1/auth/login', () => {
   it('Should signin a new user', (done) => {
     chai
       .request(app)
-      .post('/api/v1/auth/signin')
-      .send(
-        {
-          email: "yem",
-          password: "breeks2989"
-        }
-      )
+      .post('/api/v1/auth/login')
+      .send(user)
       .end((err, res) => {
         if (err) done();
         const { body } = res;
@@ -80,6 +76,5 @@ describe('GET api/v1/auth/sigin', () => {
       });
   });
  });
-
 
 
