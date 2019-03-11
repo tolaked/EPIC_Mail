@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import users from './routes/api/users';
+import messages from './routes/api/messages';
 
 const app = express();
 
@@ -19,6 +20,8 @@ app.get('/', (req, res) => res.status(200).json({
 }));
 
 app.use('/api/v1/auth', users);
+app.use('/api/v1', messages);
+
 
 // nonexistent route
 app.all('*', (req, res) => res.status(404).json({
@@ -29,7 +32,7 @@ app.all('*', (req, res) => res.status(404).json({
     },
   ],
 }));
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 2000;
 app.listen(port);
 
 export default app;
