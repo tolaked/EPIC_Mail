@@ -137,13 +137,26 @@ class MessageController {
 
   static GetAllUnreadReceivedMessages(req, res) {
     const sent = helper.findMessage(messageData, 'sent');
-  
+
     return res.status(200).json({
       status: 200,
       data: sent,
     });
   }
 
+  // Get all sent messages
+  static GetAllSentMessages(req, res) {
+    const sent = helper.findMessage(messageData, 'sent');
+    const read = helper.findMessage(messageData, 'read');
+
+    const sentMessages = [...read, ...sent];
+    const msg = sentMessages.sort((a, b) => (a.id < b.id ? 1 : -1));
+
+    return res.status(200).json({
+      status: 200,
+      data: msg,
+    });
+  }
 }
 
 export default MessageController;
