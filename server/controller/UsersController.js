@@ -21,12 +21,12 @@ class UsersController {
 
     // save new user to data structure
     const newUser = usersData.unshift(values);
+
+    // write data to file
     if (newUser) {
-      fs.writeFile(userDataPath, JSON.stringify(usersData), 'utf8', (error) => {
-        if (error) console.log(error);
-      });
+      fs.writeFileSync(userDataPath, JSON.stringify(usersData), 'utf8');
     } else {
-      console.log('Could not add new record');
+      console.log('could not write to disk');
     }
 
     return res.status(201).json({
@@ -67,6 +67,5 @@ class UsersController {
       ],
     });
   }
-
 }
 export default UsersController;

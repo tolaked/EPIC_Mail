@@ -12,43 +12,75 @@ class Helper {
     return result;
   }
 
-  // To save data into file
+  /**
+   * Save data to file
+   *
+   * @param {string} filePath
+   * @param {object} dataFile
+   * @param {objet} values
+   */
   static saveData(filePath, dataFile, values) {
+    // add new record to array
     const result = dataFile.unshift(values);
 
+    // check for succesfuly added record
     if (result !== -1) {
-      fs.writeFile(filePath, JSON.stringify(dataFile), 'utf8', (error) => {
-        if (error) {
-          console.log(`file can not be found:${error}`);
-        }
-      });
+      fs.writeFileSync(filePath, JSON.stringify(dataFile), 'utf8');
     }
+
     return values;
   }
 
-  // generate unique id
+  /**
+   * generate a unique id for every new record
+   *
+   * @param {array} dataArray
+   * @param {number} index
+   */
   static generateId(dataArray, index) {
     return dataArray.length > 0 ? dataArray[index].id + 1 : 0;
   }
 
-  // find a specific user by their email
+  /**
+   * find a specific user by email
+   *
+   * @param {array} objArr
+   * @param {string} userEmail
+   */
   static findUserByEmail(objArr, userEmail) {
-    return objArr.find(element => element.email === userEmail);
+    return objArr.find(currentUser => currentUser.email === userEmail);
   }
 
-  // find a message by status
+  /**
+   *
+   * find message by status
+   *
+   * @param {array} objArr
+   * @param {string} status
+   */
   static findMessage(objArr, status) {
-    return objArr.filter(el => el.status === status);
+    return objArr.filter(currentMessage => currentMessage.status === status);
   }
 
-  // find a message by id
+  /**
+   *
+   * find message by id
+   *
+   * @param {array} objArr
+   * @param {number} messageId
+   */
   static findMessageById(objArr, messageId) {
-    return objArr.filter(el => el.id === messageId);
+    return objArr.filter(currentMessage => currentMessage.id === messageId);
   }
 
-  // filter a message by id
+  /**
+   * filter message by id
+   *
+   * @param {object} objArr
+   * @param {number} messageId
+   */
   static filterMessage(objArr, messageId) {
-    return objArr.filter(el => el.id !== messageId);
+    return objArr.filter(currentMessage => currentMessage.id !== messageId);
   }
 }
 

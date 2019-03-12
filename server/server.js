@@ -22,7 +22,6 @@ app.get('/', (req, res) => res.status(200).json({
 app.use('/api/v1/auth', users);
 app.use('/api/v1', messages);
 
-
 // nonexistent route
 app.all('*', (req, res) => res.status(404).json({
   status: 404,
@@ -32,7 +31,7 @@ app.all('*', (req, res) => res.status(404).json({
     },
   ],
 }));
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 3000;
 app.listen(port);
 
 export default app;
