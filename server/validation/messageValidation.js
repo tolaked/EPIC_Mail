@@ -14,18 +14,18 @@ class ValidateMessageInput {
     }
 
     if (Helper.checkIfEmpty(body.message)) {
-      errors.message = 'No message';
+      errors.message = 'Message body is required';
     }
 
     if (!validator.isEmail(body.receiver)) {
-      error.receiver = 'Receiver is invalid';
+      errors.receiver = 'Reciever email is required';
     }
 
     // respond with errors if any
     if (Object.keys(errors).length > 0) {
       return res.status(400).json({
         status: 400,
-        error: [errors],
+        errors,
       });
     }
 

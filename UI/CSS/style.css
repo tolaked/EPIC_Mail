@@ -32,11 +32,10 @@ body {
 }
 
 .main-section {
-  background: url(../img/mouse2.jpeg) center/cover;
+  background: url("../img/image-signin.jpeg") center center/cover;
   display: flex;
   justify-content: center;
   min-height: calc(100vh - 60px);
-  padding: 20px;
 }
 
 .form-header {
@@ -55,10 +54,8 @@ hr {
 .form-container {
   background: #fff;
   width: 300px;
-  padding: 2em;
-  margin-top: 70px;
-  border-radius: 2px;
-  /* height: 380px; */
+  padding: 30px 50px;
+  margin: 30px 0;
   border-radius: 5px;
 }
 
@@ -293,12 +290,11 @@ hr {
   background: #ffaf30;
   margin-bottom: 20px;
   padding: 10px;
-  max-width: 100px;
   font-weight: normal;
   cursor: pointer;
   color: #000;
   font-weight: bold;
-  margin-left: 8px;
+  margin: 0 10px 20px;
   text-align: center;
   transition: 0.2s;
 }

@@ -1,28 +1,30 @@
 const showMessageContent = (evt) => {
-  if(evt.target.classList.contains('messages') || evt.target.classList.contains('message-details')) {
+  if (
+    evt.target.classList.contains('messages')
+    || evt.target.classList.contains('message-details')
+  ) {
     const messageContainer = document.querySelectorAll('.message-container');
-    messageContainer.forEach(currentElement => {
-      currentElement.style.display = 'none'
+    messageContainer.forEach((currentElement) => {
+      currentElement.style.display = 'none';
     });
     document.querySelector('.main-new-inbox-body').style.display = 'block';
   }
-}
+};
 
 const showListContent = (clickedElement) => {
-
   // hides sidebar if on responsive mode
-  if(window.innerWidth <= 600) {
+  if (window.innerWidth <= 600) {
     sidebar.classList.toggle('show-sidebar');
   }
 
   const allActiveTab = document.querySelectorAll('.active');
-  allActiveTab.forEach(currentTab => {
+  allActiveTab.forEach((currentTab) => {
     currentTab.classList.remove('active');
   });
 
   const allChildren = mainContent.children;
   const childrenArray = Array.prototype.slice.call(allChildren);
-  childrenArray.forEach(currentElement => {
+  childrenArray.forEach((currentElement) => {
     currentElement.style.display = 'none';
 
     if (currentElement.classList.contains(`${clickedElement}-container`)) {
@@ -34,34 +36,33 @@ const showListContent = (clickedElement) => {
 };
 
 const displaMainContent = (evt) => {
-  const currentlyClicked = evt.target.className;
-  if (currentlyClicked === 'inbox') {
-    showListContent(currentlyClicked);
+  if (evt.target.classList.contains('inbox')) {
+    showListContent('inbox');
   }
 
-  if (currentlyClicked === 'sent') {
-    showListContent(currentlyClicked);
+  if (evt.target.classList.contains('sent')) {
+    showListContent('sent');
   }
 
-  if (currentlyClicked === 'draft') {
-    showListContent(currentlyClicked);
+  if (evt.target.classList.contains('draft')) {
+    showListContent('draft');
   }
 
-  if (currentlyClicked === 'compose') {
+  if (evt.target.classList.contains('compose')) {
     const close = document.querySelector('.close');
     close.addEventListener('click', () => {
       document.querySelector('.inbox-container').style.display = 'block';
       document.querySelector('.compose-container').style.display = 'none';
     });
-    showListContent(currentlyClicked);
+    showListContent('compose');
   }
 
-  if (currentlyClicked === 'groups') {
+  if (evt.target.classList.contains('groups')) {
     const groupsContent = document.querySelector('.groups-dropdown-content');
     groupsContent.classList.toggle('show-dropdown-content');
   }
 
-  if (currentlyClicked === 'create-group') {
+  if (evt.target.classList.contains('create-group')) {
     const createForm = (document.querySelector('.create-group-form').style.display = 'block');
   }
 };
@@ -69,7 +70,7 @@ const displaMainContent = (evt) => {
 const showMobileMenu = (evt) => {
   evt.preventDefault();
   sidebar.classList.toggle('show-sidebar');
-}
+};
 
 const createGroupForm = document.querySelector('.create-group-form');
 const sidebar = document.querySelector('.sidebar');
@@ -87,4 +88,4 @@ createGroupForm.addEventListener('click', (evt) => {
     createGroupForm.style.display = 'none';
   }
 });
-document.querySelector(".time-received").textContent = new Date().toUTCString();
+document.querySelector('.time-received').textContent = new Date().toUTCString();
