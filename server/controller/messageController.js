@@ -134,6 +134,16 @@ class MessageController {
       data: newReceivedMsg,
     });
   }
+
+  static GetAllUnreadReceivedMessages(req, res) {
+    const sent = helper.findMessage(messageData, 'sent');
+  
+    return res.status(200).json({
+      status: 200,
+      data: sent,
+    });
+  }
+
 }
 
 export default MessageController;
