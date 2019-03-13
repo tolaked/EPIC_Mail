@@ -157,6 +157,26 @@ class MessageController {
       data: msg,
     });
   }
+
+  // Get specific message
+  static GetSpecificMessage(req, res) {
+    const { messageId } = req.params;
+    const id = parseInt(messageId, 10);
+    const message = helper.findMessageById(messageData, id);
+    const updatedMessage = helper.filterMessage(messageData, id);
+    message.forEach((e) => {
+      e.status = 'read';
+    });
+
+    const newMessages = [...message, ...updatedMessage];
+    const newMsg = newMessages.sort((a, b) => (a.id < b.id ? 1 : -1));
+    helper.saveMessage(messagePath, newMsg);
+
+    return res.status(200).json({
+      status: 200,
+      data: message,
+    });
+  }
 }
 
 export default MessageController;

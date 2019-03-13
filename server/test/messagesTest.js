@@ -148,3 +148,25 @@ describe('GET api/v1/messages/sent', () => {
       });
   });
 });
+
+// Test route to get specific message
+describe('GET api/v1/messages/:messageId', () => {
+  it('Should return a specific message', (done) => {
+    chai
+      .request(app)
+      .get('/api/v1/messages/1')
+
+      .end((err, res) => {
+        if (err) done();
+        const { body } = res;
+
+        expect(body).to.be.an('object');
+        expect(body.status).to.be.a('number');
+        expect(body.status).to.be.equals(200);
+        expect(body.data).to.be.an('array');
+        expect(body.data.length).to.be.equal(1);
+
+        done();
+      });
+  });
+});

@@ -31,6 +31,29 @@ class Helper {
     return values;
   }
 
+  static saveMessage(filePath, dataFile) {
+    fs.writeFile(filePath, JSON.stringify(dataFile), 'utf8', (error) => {
+      if (error) {
+        console.log(`file not found: ${error}`);
+      }
+    });
+  }
+
+  // delete data from a file
+  static deleteDataFromFile(filePath, dataFile, values) {
+    const result = dataFile.shift(values);
+
+    if (result !== -1) {
+      fs.writeFile(filePath, JSON.stringify(dataFile), 'utf8', (error) => {
+        if (error) {
+          console.log(`file not found: ${error}`);
+        }
+      });
+    }
+
+    return values;
+  }
+
   /**
    * generate a unique id for every new record
    *
