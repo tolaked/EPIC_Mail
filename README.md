@@ -35,16 +35,18 @@ To install and run this project you would need to have listed stack installed:
 
 To run:
 
-````sh
+```sh
 git clone <https://github.com/tolaked/EPIC_Mail.git>
 cd EPIC_Mail
 npm install
-npm start```
+npm start
+```
 
 ## Testing
 
 ```sh
-npm test```
+npm test
+```
 
 ## API-ENDPOINTS
 
@@ -72,7 +74,7 @@ npm test```
 
 You can see a hosted version of the template at [https://tolaked.github.io/EPIC_Mail/index.html](https://tolaked.github.io/EPIC_Mail/index.html)
 
-## API
+### API
 
 The API is currently in version 1 (v1) and is hosted at
 
@@ -81,5 +83,5 @@ The API is currently in version 1 (v1) and is hosted at
 ## API Documentation
 
 ## Author
+
 Akere Adetola
-````
