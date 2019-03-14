@@ -4,9 +4,11 @@ import validateUser from '../../validation/userValidation';
 
 const router = express.Router();
 
-// post message route
-router.post('/signup', validateUser.signup, UsersController.createUser);
+const { createUser, login } = UsersController;
 
-router.post('/login', validateUser.signIn, UsersController.login);
+// post message route
+router.post('/signup', validateUser.signup, createUser);
+
+router.post('/login', validateUser.signIn, login);
 
 export default router;

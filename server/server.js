@@ -31,7 +31,7 @@ app.all('*', (req, res) => res.status(404).json({
     },
   ],
 }));
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.listen(port);
 
 export default app;

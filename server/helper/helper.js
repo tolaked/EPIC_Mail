@@ -31,12 +31,14 @@ class Helper {
     return values;
   }
 
+  /**
+   * save data to file
+   *
+   * @param {*} filePath
+   * @param {*} dataFile
+   */
   static saveMessage(filePath, dataFile) {
-    fs.writeFile(filePath, JSON.stringify(dataFile), 'utf8', (error) => {
-      if (error) {
-        console.log(`file not found: ${error}`);
-      }
-    });
+    fs.writeFileSync(filePath, JSON.stringify(dataFile), 'utf8');
   }
 
   // delete data from a file
@@ -44,11 +46,7 @@ class Helper {
     const result = dataFile.shift(values);
 
     if (result !== -1) {
-      fs.writeFile(filePath, JSON.stringify(dataFile), 'utf8', (error) => {
-        if (error) {
-          console.log(`file not found: ${error}`);
-        }
-      });
+      fs.writeFile(filePath, JSON.stringify(dataFile), 'utf8');
     }
 
     return values;
@@ -104,6 +102,16 @@ class Helper {
    */
   static filterMessage(objArr, messageId) {
     return objArr.filter(currentMessage => currentMessage.id !== messageId);
+  }
+
+  /**
+   * find a specific user by id
+   *
+   * @param {array} objArr
+   * @param {string} userEmail
+   */
+  static findUserById(objArr, userId) {
+    return objArr.find(currentUser => currentUser.id === userId);
   }
 }
 
