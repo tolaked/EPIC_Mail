@@ -3,25 +3,25 @@ import Helper from '../helper/helper';
 
 class ValidateInput {
   /**
-   * 
+   *
    * Validate users input values
-   * 
-   * @param {*} req 
-   * @param {*} res 
-   * @param {*} next 
+   *
+   * @param {*} req
+   * @param {*} res
+   * @param {*} next
    */
   static signup(req, res, next) {
     const errors = {};
     const { body } = req;
 
-    body.firstname = (!Helper.checkIfEmpty(body.firstname)) ? body.firstname : '';
-    body.lastname = (!Helper.checkIfEmpty(body.lastname)) ? body.lastname : '';
-    body.email = (!Helper.checkIfEmpty(body.email)) ? body.email : '';
-    body.username = (!Helper.checkIfEmpty(body.username)) ? body.username : '';
-    body.password = (!Helper.checkIfEmpty(body.password)) ? body.password : '';
+    body.firstname = !Helper.checkIfEmpty(body.firstname) ? body.firstname : '';
+    body.lastname = !Helper.checkIfEmpty(body.lastname) ? body.lastname : '';
+    body.email = !Helper.checkIfEmpty(body.email) ? body.email : '';
+    body.username = !Helper.checkIfEmpty(body.username) ? body.username : '';
+    body.password = !Helper.checkIfEmpty(body.password) ? body.password : '';
 
-    if (!validator.isLength(body.firstname, { min: 5, max: 30 })) {
-      errors.firstname = 'Firstname must be between 5 and 30 characters';
+    if (!validator.isLength(body.firstname, { min: 3, max: 30 })) {
+      errors.firstname = 'Firstname must be between 3 and 30 characters';
     }
 
     if (Helper.checkIfEmpty(body.firstname)) {
@@ -73,29 +73,41 @@ class ValidateInput {
 
   /**
    * validate users sign in input
-   * 
-   * @param {*} req 
-   * @param {*} res 
-   * @param {*} next 
+   *
+   * @param {*} req
+   * @param {*} res
+   * @param {*} next
    */
-  static signIn(req,res,next){
+  static signIn(req, res, next) {
     const errors = {};
     const { body } = req;
 
-    body.email =  (!Helper.checkIfEmpty(body.email)) ? body.email : '';
-    body.password = (!Helper.checkIfEmpty(body.password)) ? body.password : '';
+    body.email = !Helper.checkIfEmpty(body.email) ? body.email : '';
+    body.password = !Helper.checkIfEmpty(body.password) ? body.password : '';
 
-    if (Helper.checkIfEmpty(body.email)) {
-      errors.email = 'Email is a required field';
+    switch (true) {
+      case Helper.checkIfEmpty(body.email):
+        errors.email = 'Email is a required field';
+        break;
+      case Helper.checkIfEmpty(body.password):
+        errors.password = 'Password is a required field';
+        break;
+      case !validator.isEmail(body.email):
+        errors.email = 'Email must be a valid email address';
+        break;
     }
 
-    if(Helper.checkIfEmpty(body.password)){
-      errors.password='Password field is required';
-    }
+    // if (Helper.checkIfEmpty(body.email)) {
+    //   errors.email = 'Email is a required field';
+    // }
 
-    if(!validator.isEmail(body.email)){
-      errors.email='Email is invalid e.g example@epic.com';
-    }
+    // if (Helper.checkIfEmpty(body.password)) {
+    //   errors.password = 'Password field is required';
+    // }
+
+    // if (!validator.isEmail(body.email)) {
+    //   errors.email = 'Email is invalid e.g example@epic.com';
+    // }
 
     // respond with errors if any
     if (Object.keys(errors).length > 0) {
@@ -107,7 +119,6 @@ class ValidateInput {
 
     return next();
   }
-
 }
 
 export default ValidateInput;

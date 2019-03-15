@@ -23,6 +23,11 @@ body {
   min-width: 300px;
 }
 
+.welcome-note {
+  font-style: italic;
+  color: blueviolet;
+}
+
 .logo {
   text-decoration: none;
 }

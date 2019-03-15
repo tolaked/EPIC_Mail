@@ -2,23 +2,32 @@ import validator from 'validator';
 import Helper from '../helper/helper';
 
 class ValidateMessageInput {
+  /**
+   *
+   * @param {*} req
+   * @param {*} res
+   * @param {*} next
+   */
   static sendEmail(req, res, next) {
     const errors = {};
     const { body } = req;
 
     body.receiver = !Helper.checkIfEmpty(body.receiver) ? body.receiver : '';
+    body.sender = !Helper.checkIfEmpty(body.sender) ? body.sender : '';
     body.message = !Helper.checkIfEmpty(body.message) ? body.message : '';
 
-    if (Helper.checkIfEmpty(body.receiver)) {
-      errors.receiver = 'Receiver is a required field';
-    }
-
-    if (Helper.checkIfEmpty(body.message)) {
-      errors.message = 'Message body is required';
-    }
-
-    if (!validator.isEmail(body.receiver)) {
-      errors.receiver = 'Reciever email is required';
+    switch (true) {
+      case Helper.checkIfEmpty(body.receiver):
+        errors.receiver = 'Receiver is a required field';
+        break;
+      case !validator.isEmail(body.receiver):
+        errors.receiver = 'Reciever email must be a valid email address';
+        break;
+      case !validator.isEmail(body.sender):
+        errors.sender = 'Sender email must be a valid email address';
+        break;
+      case Helper.checkIfEmpty(body.message):
+        errors.message = 'Message body is required';
     }
 
     // respond with errors if any

@@ -4,7 +4,7 @@
   "description": "A web app that allows users to exchange messages and information over the internet",
   "main": "server.js",
   "scripts": {
-    "test": "nyc ./node_modules/.bin/mocha  --compilers  js:@babel/register ./server/test/ --timeout 10000 --exit",
+    "test": "nyc --reporter=html --reporter=text mocha --require @babel/register --require babel-polyfill ./server/test/ --recursive --timeout 20000 --exit",
     "deploy": "gh-pages -d UI",
     "start": "nodemon ./server/server.js --exec babel-node",
     "lint": "./node_modules/.bin/eslint server --fix",
@@ -25,9 +25,15 @@
   },
   "homepage": "https://github.com/tolaked/EPIC_Mail/UI",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "dotenv": "^7.0.0",
     "express": "^4.16.4",
+    "faker": "^4.1.0",
     "gh-pages": "^2.0.1",
+    "jsonwebtoken": "^8.5.0",
     "validator": "^10.11.0"
   },
   "devDependencies": {
@@ -40,8 +46,6 @@
     "babel-loader": "^8.0.0-beta.6",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
-    "chai": "^4.2.0",
-    "chai-http": "^4.2.1",
     "eslint": "^5.12.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",

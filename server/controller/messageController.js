@@ -3,7 +3,6 @@ import inboxData from '../data/inbox';
 import sentData from '../data/sent';
 import userData from '../data/users';
 import helper from '../helper/helper';
-import validMessageInput from '../validation/messageValidation';
 
 const sentPath = 'server/data/sent.json';
 const messagePath = 'server/data/messages.json';
@@ -13,13 +12,13 @@ class MessageController {
   /**
    * create a new message
    *
-   * @param {*} req
-   * @param {*} res
+   * @param {object} req
+   * @param {object} res
    */
   static createMessage(req, res) {
     const { body } = req;
 
-    // save as draft
+    // check if message is a draft and save as draft
     if (body.status === 'draft') {
       // get draft message details
       const values = {
@@ -41,6 +40,7 @@ class MessageController {
       });
     }
 
+    // send a new message to a user
     try {
       // find receiver by email
       const receiver = helper.findUserByEmail(userData, body.receiver);
@@ -56,6 +56,7 @@ class MessageController {
         });
       }
 
+      // collect user provided data
       const values = {
         id: helper.generateId(messageData, 0),
         createdOn: new Date().toUTCString(),
@@ -81,10 +82,13 @@ class MessageController {
         createdOn: values.createdOn,
       };
 
+      // save newly created message
       const message = helper.saveData(messagePath, messageData, values);
-      console.log(message);
 
+      // save newly created message as sent message to the sender
       helper.saveData(sentPath, sentData, sent);
+
+      // savve newly created message as inbox for the receiver
       helper.saveData(inboxPath, inboxData, inbox);
 
       return res.status(201).json({
@@ -98,35 +102,37 @@ class MessageController {
     } catch (e) {
       return res.status(400).json({
         status: 400,
-        error: `${e} Sorry, something must have gone wrong, try again`,
+        error: 'Sorry, something must have gone wrong, try again',
       });
     }
   }
 
   /**
-   * get all received messages
+   * Get all received messages
    *
    * @param {object} req
    * @param {object} res
    */
-  static GetAllReceivedMessages(req, res) {
+  static getAllReceivedMessages(req, res) {
+    // find all message with status of sent
     const sent = helper.findMessage(messageData, 'sent');
 
+    // find all message with status of read
     const read = helper.findMessage(messageData, 'read');
 
     // combined sent and read messages into one message array
     const receivedMessages = [...sent, ...read];
 
-    // sort messages in highest to lowest based on id
-    const newReceivedMsg = receivedMessages.sort((a, b) => (a.id < b.id ? 1 : -1));
-
     // check if no messages
-    if (newReceivedMsg.length === 0) {
+    if (receivedMessages.length === 0) {
       return res.status(404).json({
         status: 404,
-        data: newReceivedMsg,
+        data: [],
       });
     }
+
+    // sort messages in highest to lowest based on id
+    const newReceivedMsg = receivedMessages.sort((a, b) => (a.id < b.id ? 1 : -1));
 
     // return all matching messages
     return res.status(200).json({
@@ -135,7 +141,13 @@ class MessageController {
     });
   }
 
-  static GetAllUnreadReceivedMessages(req, res) {
+  /**
+   * Get all unread received messages
+   *
+   * @param {object} req
+   * @param {object} res
+   */
+  static getAllUnreadReceivedMessages(req, res) {
     const sent = helper.findMessage(messageData, 'sent');
 
     return res.status(200).json({
@@ -144,37 +156,90 @@ class MessageController {
     });
   }
 
-  // Get all sent messages
-  static GetAllSentMessages(req, res) {
+  /**
+   *Get all sent messages
+   *
+   * @param {object} req
+   * @param {object} res
+   */
+  static getAllSentMessages(req, res) {
+    // get all sent messages
     const sent = helper.findMessage(messageData, 'sent');
     const read = helper.findMessage(messageData, 'read');
 
     const sentMessages = [...read, ...sent];
-    const msg = sentMessages.sort((a, b) => (a.id < b.id ? 1 : -1));
+
+    const sortedMessages = sentMessages.sort((a, b) => (a.id < b.id ? 1 : -1));
 
     return res.status(200).json({
       status: 200,
-      data: msg,
+      data: sortedMessages,
     });
   }
 
-  // Get specific message
-  static GetSpecificMessage(req, res) {
-    const { messageId } = req.params;
-    const id = parseInt(messageId, 10);
-    const message = helper.findMessageById(messageData, id);
-    const updatedMessage = helper.filterMessage(messageData, id);
-    message.forEach((e) => {
-      e.status = 'read';
-    });
+  /**
+   *
+   * Get specific message
+   *
+   * @param {object} req
+   * @param {object} res
+   */
+  static getSpecificMessage(req, res) {
+    // get message id
+    const messageId = parseInt(req.params.messageId, 10);
 
-    const newMessages = [...message, ...updatedMessage];
-    const newMsg = newMessages.sort((a, b) => (a.id < b.id ? 1 : -1));
-    helper.saveMessage(messagePath, newMsg);
+    // check if message id is a number
+    if (typeof messageId !== 'number') {
+      return res.status(400).json({
+        status: 400,
+        error: 'Invalid message id',
+      });
+    }
+
+    // find message by id
+    const message = helper.findMessageById(messageData, messageId);
 
     return res.status(200).json({
       status: 200,
       data: message,
+    });
+  }
+
+  /**
+   * Delete a specific message
+   *
+   * @param {*} req
+   * @param {*} res
+   */
+  static deleteSpecificMessage(req, res) {
+    // check if message id is integer
+    const messageId = parseInt(req.params.messageId, 10);
+
+    // check if message id is a number
+    if (typeof messageId !== 'number') {
+      return res.status(400).json({
+        status: 400,
+        error: 'Invalid message id',
+      });
+    }
+
+    // find message by the given id
+    const data = helper.filterMessage(messageData, messageId);
+
+    // check if message record exist
+    if (data.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'No record found',
+      });
+    }
+
+    // delete a specific message by id
+    const deletedMessage = helper.deleteDataFromFile(messagePath, messageData, data);
+
+    return res.status(200).json({
+      status: 200,
+      data: [deletedMessage],
     });
   }
 }
