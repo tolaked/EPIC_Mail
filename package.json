@@ -4,11 +4,12 @@
   "description": "A web app that allows users to exchange messages and information over the internet",
   "main": "server.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha --require @babel/register --require babel-polyfill ./server/test/ --recursive --timeout 20000 --exit",
+    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha --require @babel/register --require babel-polyfill ./server/test/ --recursive --timeout 20000 --exit",
     "deploy": "gh-pages -d UI",
-    "start": "nodemon ./server/server.js --exec babel-node",
+    "start": "cross-env NODE_ENV=production nodemon ./server/server.js --exec babel-node",
     "lint": "./node_modules/.bin/eslint server --fix",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "showcoverage": "start ./coverage/index.html"
   },
   "repository": {
     "type": "git",
@@ -29,11 +30,13 @@
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
+    "cross-env": "^5.2.0",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "gh-pages": "^2.0.1",
     "jsonwebtoken": "^8.5.0",
+    "pg": "^7.9.0",
     "validator": "^10.11.0"
   },
   "devDependencies": {
