@@ -2,15 +2,20 @@ import dotenv from 'dotenv';
 import { Pool } from pg;
 
 dotenv.config();
+
 let connectionString;
 
-if(procees.env.NODE_ENV === 'test') {
+// Check if on test db
+if(process.env.NODE_ENV === 'test') {
   connectionString = process.env.TEST;
 }
+
+// check if on production db
 if(process.env.NODE_ENV === 'production') {
   connectionString = process.env.DATABASE_URL;
 }
 
+// Instantiate pg object
 const pool = new Pool({
   connectionString,
 });

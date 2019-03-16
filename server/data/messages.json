@@ -1,1 +1,92 @@
-[{"id":8,"createdOn":"Thu, 14 Mar 2019 16:26:48 GMT","subject":"Hello","message":"Hi","parentMessageId":8,"status":"sent","senderId":1,"recieverId":1},{"id":7,"createdOn":"Thu, 14 Mar 2019 16:17:49 GMT","subject":"Hello","message":"Hi","parentMessageId":7,"status":"sent","senderId":1,"recieverId":1},{"id":6,"createdOn":"Thu, 14 Mar 2019 13:39:23 GMT","subject":"Hello","message":"Hi","parentMessageId":6,"status":"sent","senderId":1,"recieverId":1},{"id":5,"createdOn":"Thu, 14 Mar 2019 13:38:55 GMT","subject":"Hello","message":"Hi","parentMessageId":5,"status":"sent","senderId":1,"recieverId":1},{"id":4,"createdOn":"Thu, 14 Mar 2019 13:37:38 GMT","subject":"Hello","message":"Hi","parentMessageId":4,"status":"sent","senderId":1,"recieverId":1},{"id":3,"createdOn":"Thu, 14 Mar 2019 13:36:18 GMT","subject":"Hello","message":"Hi","parentMessageId":3,"status":"sent","senderId":1,"recieverId":1},{"id":2,"createdOn":"Sun, 10 Mar 2019 13:20:47 GMT","subject":"Hello","message":"Hi","parentMessageId":2,"status":"read","senderId":0,"recieverId":0},{"id":1,"createdOn":"Sun, 10 Mar 2019 13:09:45 GMT","subject":"Hi","message":"Hello","parentMessageId":1,"status":"read","senderId":0,"recieverId":0},{"id":0,"createdOn":"Sun, 10 Mar 2019 13:09:45 GMT","subject":"Hi","message":"Hello","parentMessageId":1,"status":"read","senderId":0,"recieverId":0}]
+[
+  {
+    "id": 8,
+    "createdOn": "Thu, 14 Mar 2019 16:26:48 GMT",
+    "subject": "Hello",
+    "message": "Hi",
+    "parentMessageId": 8,
+    "status": "sent",
+    "senderId": 1,
+    "recieverId": 1
+  },
+  {
+    "id": 7,
+    "createdOn": "Thu, 14 Mar 2019 16:17:49 GMT",
+    "subject": "Hello",
+    "message": "Hi",
+    "parentMessageId": 7,
+    "status": "sent",
+    "senderId": 1,
+    "recieverId": 1
+  },
+  {
+    "id": 6,
+    "createdOn": "Thu, 14 Mar 2019 13:39:23 GMT",
+    "subject": "Hello",
+    "message": "Hi",
+    "parentMessageId": 6,
+    "status": "sent",
+    "senderId": 1,
+    "recieverId": 1
+  },
+  {
+    "id": 5,
+    "createdOn": "Thu, 14 Mar 2019 13:38:55 GMT",
+    "subject": "Hello",
+    "message": "Hi",
+    "parentMessageId": 5,
+    "status": "sent",
+    "senderId": 1,
+    "recieverId": 1
+  },
+  {
+    "id": 4,
+    "createdOn": "Thu, 14 Mar 2019 13:37:38 GMT",
+    "subject": "Hello",
+    "message": "Hi",
+    "parentMessageId": 4,
+    "status": "sent",
+    "senderId": 1,
+    "recieverId": 1
+  },
+  {
+    "id": 3,
+    "createdOn": "Thu, 14 Mar 2019 13:36:18 GMT",
+    "subject": "Hello",
+    "message": "Hi",
+    "parentMessageId": 3,
+    "status": "sent",
+    "senderId": 1,
+    "recieverId": 1
+  },
+  {
+    "id": 2,
+    "createdOn": "Sun, 10 Mar 2019 13:20:47 GMT",
+    "subject": "Hello",
+    "message": "Hi",
+    "parentMessageId": 2,
+    "status": "read",
+    "senderId": 0,
+    "recieverId": 0
+  },
+  {
+    "id": 1,
+    "createdOn": "Sun, 10 Mar 2019 13:09:45 GMT",
+    "subject": "Hi",
+    "message": "Hello",
+    "parentMessageId": 1,
+    "status": "read",
+    "senderId": 0,
+    "recieverId": 0
+  },
+  {
+    "id": 0,
+    "createdOn": "Sun, 10 Mar 2019 13:09:45 GMT",
+    "subject": "Hi",
+    "message": "Hello",
+    "parentMessageId": 1,
+    "status": "read",
+    "senderId": 0,
+    "recieverId": 0
+  }
+]

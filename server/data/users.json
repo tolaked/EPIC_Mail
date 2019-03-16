@@ -1,1 +1,39 @@
-[{"id":4,"firstname":"olowosholaoluwa","lastname":"omosholami","email":"kolapo@epic.com","password":"$2a$10$.KZwhFiTQ/Si.5SbsiUzUuMg0CnwXo1fXLXNK5PbCRlPoItF15CKW","isAdmin":"false"},{"id":3,"firstname":"olowoshola","lastname":"omoshola","email":"shola@epic.com","password":"$2a$10$3nJ9La5Byn/6eKwTz7fVq.LLhIHs5DDJWvBKxPQQLVVZ3nL8e6CQ.","isAdmin":"false"},{"id":2,"firstname":"olowoshola","lastname":"omoshola","email":"shola@epic.com","password":"$2a$10$Elf0217Ky40jXEtwEm/P/eiMwHSde7VSq.MHK4l4bEBCgL39rn0oy","isAdmin":"false"},{"id":1,"firstname":"Akere","lastname":"Adetola","email":"seun2@epic.com","password":"$2a$10$SINH/0KP4UgzeV4i5M4cOuyC.ihiB2k2BP5A4WRJyIZZiktjrv4ZK"},{"id":0,"lastname":"seun","email":"seun@epic.com","password":"myname1234"}]
+[
+  {
+    "id": 4,
+    "firstname": "olowosholaoluwa",
+    "lastname": "omosholami",
+    "email": "kolapo@epic.com",
+    "password": "$2a$10$.KZwhFiTQ/Si.5SbsiUzUuMg0CnwXo1fXLXNK5PbCRlPoItF15CKW",
+    "isAdmin": "false"
+  },
+  {
+    "id": 3,
+    "firstname": "olowoshola",
+    "lastname": "omoshola",
+    "email": "shola@epic.com",
+    "password": "$2a$10$3nJ9La5Byn/6eKwTz7fVq.LLhIHs5DDJWvBKxPQQLVVZ3nL8e6CQ.",
+    "isAdmin": "false"
+  },
+  {
+    "id": 2,
+    "firstname": "olowoshola",
+    "lastname": "omoshola",
+    "email": "shola@epic.com",
+    "password": "$2a$10$Elf0217Ky40jXEtwEm/P/eiMwHSde7VSq.MHK4l4bEBCgL39rn0oy",
+    "isAdmin": "false"
+  },
+  {
+    "id": 1,
+    "firstname": "Akere",
+    "lastname": "Adetola",
+    "email": "seun2@epic.com",
+    "password": "$2a$10$SINH/0KP4UgzeV4i5M4cOuyC.ihiB2k2BP5A4WRJyIZZiktjrv4ZK"
+  },
+  {
+    "id": 0,
+    "lastname": "seun",
+    "email": "seun@epic.com",
+    "password": "myname1234"
+  }
+]

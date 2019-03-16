@@ -42,6 +42,7 @@ class Helper {
   }
 
   // delete data from a file
+
   static deleteDataFromFile(filePath, dataFile, values) {
     const result = dataFile.shift(values);
 
