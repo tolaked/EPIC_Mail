@@ -17,7 +17,6 @@ class ValidateInput {
     body.firstname = !Helper.checkIfEmpty(body.firstname) ? body.firstname : '';
     body.lastname = !Helper.checkIfEmpty(body.lastname) ? body.lastname : '';
     body.email = !Helper.checkIfEmpty(body.email) ? body.email : '';
-    body.username = !Helper.checkIfEmpty(body.username) ? body.username : '';
     body.password = !Helper.checkIfEmpty(body.password) ? body.password : '';
 
     if (!validator.isLength(body.firstname, { min: 3, max: 30 })) {
@@ -32,8 +31,8 @@ class ValidateInput {
       errors.firstname = 'Firstname can not contain numbers and symbols';
     }
 
-    if (!validator.isLength(body.lastname, { min: 5, max: 30 })) {
-      errors.lastname = 'Lastname must be between 5 and 30 characters';
+    if (!validator.isLength(body.lastname, { min: 3, max: 30 })) {
+      errors.lastname = 'Lastname must be between 3 and 30 characters';
     }
 
     if (Helper.checkIfEmpty(body.lastname)) {
@@ -96,18 +95,6 @@ class ValidateInput {
         errors.email = 'Email must be a valid email address';
         break;
     }
-
-    // if (Helper.checkIfEmpty(body.email)) {
-    //   errors.email = 'Email is a required field';
-    // }
-
-    // if (Helper.checkIfEmpty(body.password)) {
-    //   errors.password = 'Password field is required';
-    // }
-
-    // if (!validator.isEmail(body.email)) {
-    //   errors.email = 'Email is invalid e.g example@epic.com';
-    // }
 
     // respond with errors if any
     if (Object.keys(errors).length > 0) {

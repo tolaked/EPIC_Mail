@@ -9,13 +9,14 @@ const { expect } = chai;
 chai.use(chaiHttp);
 
 const user = {
-  email: faker.internet.email(),
   firstname: faker.name.firstName(),
   lastname: faker.name.lastName(),
+  email: faker.internet.email(),
   password: 'breeks29',
 };
 
 let userToken;
+let userTokenV2;
 
 const inv = {
   message: '',
@@ -40,7 +41,6 @@ const invalidMail = {
   receiver: 'seunwring@epic.com',
 };
 
-
 // Test suite for home route
 describe('GET /', () => {
   it('Should redirect to home route', (done) => {
@@ -60,10 +60,9 @@ describe('GET /', () => {
   });
 });
 
-
-// Test suite for signup route
-describe('GET api/v1/auth/signup', () => {
-  it('Should create a new user account', (done) => {
+// Test suite for signup route [JSON-TEST-V1]
+describe('POST api/v1/auth/signup [JSON-TEST-V1]', () => {
+  it('Should create a new user account [JSON-TEST-V1]', (done) => {
     chai
       .request(app)
       .post('/api/v1/auth/signup')
@@ -81,16 +80,15 @@ describe('GET api/v1/auth/signup', () => {
   });
 });
 
-
-// Test suite for signup route
-describe('GET api/v1/auth/login', () => {
-  it('Should signin an existing user', (done) => {
+// Test suite for signup route [DATABASE-JSON-V1]
+describe('POST api/v1/auth/login [DATABASE-JSON-V1]', () => {
+  it('Should signin an existing user [DATABASE-JSON-V1]', (done) => {
     chai
       .request(app)
       .post('/api/v1/auth/login')
       .send({
         email: 'seun2@epic.com',
-        password: 'breeks29'
+        password: 'breeks29',
       })
       .end((err, res) => {
         if (err) done();
