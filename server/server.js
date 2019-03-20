@@ -1,9 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import messages from './routes/api/messages-v2';
-import messages1 from './routes/api/messages';
-import users from './routes/api/users-v2';
-import users1 from './routes/api/users';
+import apiV1 from './routes/api/v1';
+import apiV2 from './routes/api/v2';
 
 const app = express();
 
@@ -21,12 +19,8 @@ app.get('/', (req, res) => res.status(200).json({
   ],
 }));
 
-// API version 1
-app.use('/api/v1/auth', users1);
-app.use('/api/v1', messages1);
-
-app.use('/api/v2/auth', users);
-app.use('/api/v2', messages);
+app.use('/api/v1', apiV1);
+app.use('/api/v2', apiV2);
 
 // nonexistent route
 app.all('*', (req, res) => res.status(404).json({
