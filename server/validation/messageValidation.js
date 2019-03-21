@@ -13,7 +13,7 @@ class ValidateMessageInput {
     const { body } = req;
 
     body.receiver = !Helper.checkIfEmpty(body.receiver) ? body.receiver : '';
-    body.sender = !Helper.checkIfEmpty(body.sender) ? body.sender : '';
+
     body.message = !Helper.checkIfEmpty(body.message) ? body.message : '';
 
     switch (true) {
@@ -23,9 +23,7 @@ class ValidateMessageInput {
       case !validator.isEmail(body.receiver):
         errors.receiver = 'Reciever email must be a valid email address';
         break;
-      case !validator.isEmail(body.sender):
-        errors.sender = 'Sender email must be a valid email address';
-        break;
+
       case Helper.checkIfEmpty(body.message):
         errors.message = 'Message body is required';
     }
