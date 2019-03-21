@@ -11,7 +11,6 @@ class Auth {
    *Generate token
    *
    * @param {number} id
-
    */
   static generateToken(id) {
     const token = jwt.sign(
@@ -74,6 +73,8 @@ class Auth {
   static async verifyTokendb(req, res, next) {
     const { token } = req.headers;
 
+    console.log(token);
+
     // check if token was provided
     if (!token) {
       return res.status(403).json({
@@ -85,7 +86,6 @@ class Auth {
     try {
       // verify user provided token against existing token
       const decoded = jwt.verify(token, process.env.SECRET_KEY);
-
       const queryString = 'SELECT * FROM users WHERE id = $1';
       const { rows } = await DB.query(queryString, [decoded.id]);
 
