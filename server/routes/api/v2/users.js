@@ -1,6 +1,7 @@
 import express from 'express';
 import UsersControllerV2 from '../../../controller/UsersControllerV2';
 import validateUser from '../../../validation/userValidation';
+import Auth from '../../../middleware/Auth';
 
 const app = express.Router();
 

@@ -233,8 +233,50 @@ class GroupController {
         error: 'internal server error',
       });
     }
+
+    
   }
 
+  static async sendEmailToGroup(req, res) {
+    const { id, email } = req.user;
+    const { groupid } = req.params;
+    const { body } = req;
+    try {
+      const queryString = 'SELECT * FROM groupmembers WHERE (groupmembers.groupid, groupmembers.memberid) = ($1, $2)';
+      const { rows } = await DB.query(queryString, [groupid, id]);
+
+      // check if user belongs to group
+      if (rows.length === 0) {
+        return res.status(403).json({
+          status: 403,
+          error: 'sorry, you are not a member of this group',
+        });
+      }
+
+      const values = [
+        body.subject,
+        body.message,
+        'sent',
+        id,
+        body.parentmessageid,
+        'true',
+        groupid,
+      ];
+      const queryString2 = 'INSERT INTO messages(subject, message, status, createdby, parentmessageid, groupmessage, groupmessageid) VALUES($1, $2, $3, $4, $5, $6, $7) returning *';
+      const message = await DB.query(queryString2, values);
+
+
+      return res.status(201).json({
+        status: 201,
+        data: message.rows[0],
+      });
+    } catch (error) {
+      return res.status(500).json({
+        status: 500,
+        error,
+      });
+    }
+  }
  
 }
 

@@ -3,7 +3,7 @@ import messageController from '../../../controller/messageControllerV2';
 import validateMessage from '../../../validation/messageValidation';
 import Auth from '../../../middleware/Auth';
 
-const { verifyToken } = Auth;
+const { verifyTokendb } = Auth;
 
 const {
   createMessageV2,
@@ -17,19 +17,19 @@ const {
 const app = express.Router();
 
 export default (app) => {
-  app.post('/messages', verifyToken, validateMessage.sendEmail, createMessageV2);
+  app.post('/messages', verifyTokendb, validateMessage.sendEmail, createMessageV2);
 
-  app.get('/messages', verifyToken, getAllReceivedMessagesV2);
+  app.get('/messages', verifyTokendb, getAllReceivedMessagesV2);
 
   // get all unread messages endpoint
-  app.get('/messages/unread', verifyToken, getAllUnreadReceivedMessagesV2);
+  app.get('/messages/unread', verifyTokendb, getAllUnreadReceivedMessagesV2);
 
   // get all sent messages endpoint
-  app.get('/messages/sent', verifyToken, getAllSentMessagesV2);
+  app.get('/messages/sent', verifyTokendb, getAllSentMessagesV2);
 
   // get specific messages endpoint
-  app.get('/messages/:messageId', verifyToken, getSpecificMessageV2);
+  app.get('/messages/:messageId', verifyTokendb, getSpecificMessageV2);
 
   // delete specific messages endpoint
-  app.delete('/messages/:messageId', verifyToken, deleteSpecificMessageV2);
+  app.delete('/messages/:messageId', verifyTokendb, deleteSpecificMessageV2);
 };
