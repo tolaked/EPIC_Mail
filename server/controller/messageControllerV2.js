@@ -46,7 +46,6 @@ class MessageControllerV2 {
       const saveMessagequeryString = 'INSERT INTO messages(createdby, subject, message, parentmessageid, status) VALUES($1, $2, $3, $4, $5) returning *';
       const { rows } = await DB.query(saveMessagequeryString, messagevalues);
       // sent message
-    
 
       const sentqueryString = 'INSERT INTO sent(senderid, messageid) VALUES($1, $2) returning *';
       const sent = [id, rows[0].id];
