@@ -37,16 +37,17 @@ class GroupController {
    */
   static async getAllGroups(req, res) {
     const { id } = req.user;
-
+    
     try {
       const queryString = 'SELECT groups.id, groups.name, groupmembers.role FROM groups LEFT JOIN groupmembers ON groupmembers.groupid = groups.id WHERE groupmembers.memberid = $1';
 
       const { rows } = await DB.query(queryString, [id]);
-
+      
       return res.status(200).json({
         status: 'success',
-        data: rows,
+        data: rows[0].name,
       });
+      
     } catch (error) {
       return res.status(500).json({
         status: 500,

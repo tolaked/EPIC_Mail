@@ -2,6 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import faker from 'faker';
 import app from '../server';
+import messageData from '../data/messages.json'
 
 const { expect } = chai;
 
@@ -16,7 +17,7 @@ const user = {
 };
 
 let userToken;
-let userTokenV2;
+let DbnewUserToken;
 
 const inv = {
   message: '',
@@ -40,6 +41,7 @@ const invalidMail = {
   status: 'sent',
   receiver: 'seunwring@epic.com',
 };
+
 
 // Test suite for home route
 describe('GET /', () => {
