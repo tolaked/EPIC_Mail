@@ -3,8 +3,14 @@ import bodyParser from 'body-parser';
 import apiV1 from './routes/api/v1';
 import apiV2 from './routes/api/v2';
 import groups from './routes/api/v2';
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
 
 const app = express();
+
+const swaggerDocument = YAML.load(`${__dirname}/../swagger.yaml`);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
