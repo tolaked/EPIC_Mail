@@ -45,7 +45,7 @@ class GroupController {
       
       return res.status(200).json({
         status: 'success',
-        data: rows[0].name,
+        data:[ rows[0].name],
       });
       
     } catch (error) {

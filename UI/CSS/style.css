@@ -156,8 +156,12 @@ hr {
   transition: 0.3s;
   display: block;
   width: 100%;
+  text-decoration: none;
 }
 
+.back-login {
+  text-align: center;
+}
 .no-account {
   margin-top: 15px;
   text-align: center;
