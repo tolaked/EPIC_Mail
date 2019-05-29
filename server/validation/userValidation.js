@@ -27,8 +27,11 @@ class ValidateInput {
       errors.firstname = 'Firstname is a required field';
     }
 
-    if (!/^[a-zA-Z]+$/.test(body.firstname)) {
+    if (!/^[a-zA-Z]/.test(body.firstname)) {
       errors.firstname = 'Firstname can not contain numbers and symbols';
+    }
+    if (/^[$]/.test(body.firstname)) {
+      errors.firstname = 'firstaname cant be empty';
     }
 
     if (!validator.isLength(body.lastname, { min: 3, max: 30 })) {

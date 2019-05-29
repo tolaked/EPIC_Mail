@@ -10,11 +10,12 @@
 body {
   font-family: Verdana, "Geneva", Tahoma, sans-serif;
   font-size: 100%;
+  color:#6c757d;
 }
 
 .main-header {
   height: 60px;
-  background: #fff;
+  background: #fff; 
   box-sizing: border-box;
   padding: 20px;
   font-size: 30px;

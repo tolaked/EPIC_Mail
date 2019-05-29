@@ -37,17 +37,15 @@ class GroupController {
    */
   static async getAllGroups(req, res) {
     const { id } = req.user;
-    
+
     try {
       const queryString = 'SELECT groups.id, groups.name, groupmembers.role FROM groups LEFT JOIN groupmembers ON groupmembers.groupid = groups.id WHERE groupmembers.memberid = $1';
 
       const { rows } = await DB.query(queryString, [id]);
-      
       return res.status(200).json({
         status: 'success',
-        data:[ rows[0].name],
+        data: rows,
       });
-      
     } catch (error) {
       return res.status(500).json({
         status: 500,
@@ -234,8 +232,6 @@ class GroupController {
         error: 'internal server error',
       });
     }
-
-    
   }
 
   static async sendEmailToGroup(req, res) {
@@ -266,7 +262,6 @@ class GroupController {
       const queryString2 = 'INSERT INTO messages(subject, message, status, createdby, parentmessageid, groupmessage, groupmessageid) VALUES($1, $2, $3, $4, $5, $6, $7) returning *';
       const message = await DB.query(queryString2, values);
 
-
       return res.status(201).json({
         status: 201,
         data: message.rows[0],
@@ -278,7 +273,6 @@ class GroupController {
       });
     }
   }
- 
 }
 
 export default GroupController;

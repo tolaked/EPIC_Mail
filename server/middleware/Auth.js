@@ -88,8 +88,6 @@ class Auth {
   static async verifyTokendb(req, res, next) {
     const { token } = req.headers;
 
-    console.log(token);
-
     // check if token was provided
     if (!token) {
       return res.status(403).json({
