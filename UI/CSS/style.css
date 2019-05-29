@@ -10,12 +10,12 @@
 body {
   font-family: Verdana, "Geneva", Tahoma, sans-serif;
   font-size: 100%;
-  color:#6c757d;
+  color: #6c757d;
 }
 
 .main-header {
   height: 60px;
-  background: #fff; 
+  background: #fff;
   box-sizing: border-box;
   padding: 20px;
   font-size: 30px;
@@ -360,6 +360,17 @@ hr {
 
 .delete-icon {
   color: red;
+}
+.feedback-message-error {
+  color: #dc3545;
+  border: 0.9px solid #dc3545;
+  display: block;
+}
+
+.feedback-message-success {
+  color: green;
+  border: 0.9px solid green;
+  display: block;
 }
 
 .inbox {
