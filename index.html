@@ -23,7 +23,7 @@
         </h3>
         <p class="form-header">Please enter your login details</p>
 
-        <form action="" class="form">
+        <form action="dashboard.html" class="form" method="POST">
           <div class="input-container">
             <hr />
             <label for="username" class="label">Username</label>
@@ -68,9 +68,12 @@
       </div>
       <!--Sign up Page-->
       <div class="signup">
-        <form action="">
+        <form action="dashboard.html" method="POST">
           <div class="input-container">
             <p class="form-header">Create an account</p>
+            <div class="feedback_container"></div>
+            <ul></ul>
+            <hr />
             <label for="Username" class="label">Username</label>
             <input
               class="input username"
@@ -126,6 +129,7 @@
               required
             />
           </div>
+          <div class="feedback_container2"></div>
           <div class="input-container">
             <label for="Confirm password" class="label">Confirm password</label>
             <input
@@ -137,7 +141,7 @@
               required
             />
           </div>
-          <button type="submit" class="button">Sign up</button>
+          <button type="submit" class="button" id="signupbtn">Sign up</button>
           <p class="account">
             Already have an account?
             <a href="#" class="Login-link">Login</a>
