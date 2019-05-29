@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import apiV1 from './routes/api/v1';
 import apiV2 from './routes/api/v2';
 import groups from './routes/api/v2';
@@ -29,6 +30,21 @@ app.get('/', (req, res) => res.status(200).json({
 app.use('/api/v1', apiV1);
 app.use('/api/v2', apiV2);
 app.use('/api/v2', groups);
+
+app.use(
+  cors({
+    origin: '*',
+    methods: 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  }),
+);
+app.all('/*', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+  next();
+});
+app.use(cors());
 
 // nonexistent route
 app.all('*', (req, res) => res.status(404).json({
