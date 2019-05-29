@@ -19,7 +19,7 @@ const signUp = (e) => {
   const lastname = document.getElementById('LastName').value;
   const email = document.getElementById('Email').value;
   const userName = document.getElementById('Username').value;
-  const password = document.getElementById('password').value;
+  const password = document.getElementById('Password').value;
   const password2 = document.getElementById('Confirm password').value;
   const feedbackContainer = document.querySelector('.feedback_container');
   const feedbackContainer2 = document.querySelector('.feedback_container2');
@@ -40,7 +40,7 @@ const signUp = (e) => {
     feedbackContainer2.innerHTML = '';
     feedbackContainer2.style.border = 'none';
     // sign up API-endpoint url
-    const url = 'https://my-quick-credit-app.herokuapp.com/api/v2/auth/signup';
+    const url = 'https:/myepic-mail.herokuapp.com/api/v2/auth/signup';
 
     // User input data object
     const formData = {
@@ -97,7 +97,7 @@ const signUp = (e) => {
 };
 
 // Get sign up button
-const signupbtn = document.getElementById('signupbtn');
+const signupbtn = document.getElementById('signupbtnn');
 
 // bind click event to sign up button
 signupbtn.addEventListener('click', signUp);
